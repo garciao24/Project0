@@ -3,9 +3,18 @@ import MySQLdb
 import pymysql
 pymysql.install_as_MySQLdb()
 import os
+import pandas as pd
+from sqlalchemy import create_engine
 
 
 
+
+
+# engine = create_engine('mysql+mysqldb://%s:%s@localhost:%i/%s'
+#                        %('root', 'j6Av6mTSzr#6R','127.0.0.1', 'pizzaria'))
+# sql = "SELECT * FROM items;"
+# df = pd.read_sql_query(sql, engine).set_index('id')
+# df.head()
 
 
 class sql:
@@ -21,8 +30,8 @@ class sql:
             print(row)
             print("\n")
 
-    def rows(self):
-        return self.cursor.rowcount
+    def close(self):
+        self.db.close()
 
 dp = sql()
-#dp.query("SELECT * FROM items")
+dp.query("SELECT * FROM items")
