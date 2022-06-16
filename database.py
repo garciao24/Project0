@@ -30,6 +30,9 @@ class sql:
             print(row)
             print("\n")
 
+
+
+
     def close(self):
         self.db.close()
 
