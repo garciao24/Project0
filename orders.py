@@ -1,3 +1,5 @@
+import pandas as pd
+import pyodbc
 from database import sql
 
 
@@ -6,8 +8,6 @@ class orders():
         pass
 
 
-import pandas as pd
-import pyodbc
 
 # Import CSV
 data = pd.read_csv (r'C:\Users\Ron\Desktop\Test\products.csv')   
@@ -26,15 +26,6 @@ class insert(sql):
                  row.id_item,
                  row.OrderDate
                  )
-
-    # cursor.execute('''
-    #             INSERT INTO products (product_id, product_name, price)
-    #             VALUES (?,?,?)
-    #             ''',
-    #             row.product_id, 
-    #             row.product_name,
-    #             row.price
-    #             )
     dp.commit()
 
 
