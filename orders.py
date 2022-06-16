@@ -46,7 +46,18 @@ class customer(sql):
                  )
     dp.commit()
 
-
+class items(sql):
+    dp = sql()
+    for row in df.itertuples():
+        dp.query('''
+        INSERT INTO orders (id_customer, id_item, OrderDate)
+        VALUES (?,?,?)
+                ''',
+                 row.id_customer, 
+                 row.id_item,
+                 row.OrderDate
+                 )
+    dp.commit()
 
 
 
