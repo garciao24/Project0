@@ -30,7 +30,8 @@ class sql:
             print(row)
             print("\n")
 
-
+    def modify(self,sql):
+        pass
 
 
     def close(self):
