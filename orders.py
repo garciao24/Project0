@@ -3,9 +3,9 @@ import pyodbc
 from database import sql
 
 
-class orders():
-    def addOrder(self,customer,item,date):
-        pass
+# class orders():
+#     def addOrder(self,customer,item,date):
+#         pass
 
 
 
@@ -14,10 +14,28 @@ data = pd.read_csv (r'C:\Users\Ron\Desktop\Test\products.csv')
 df = pd.DataFrame(data)
 
 # Insert DataFrame to Table
-class insert(sql):
+class orders(sql):
     dp = sql()
+
+    def orders():
+        pass
     for row in df.itertuples():
-        
+        dp.query('''
+        INSERT INTO orders (id_customer, id_item, OrderDate)
+        VALUES (?,?,?)
+                ''',
+                 row.id_customer, 
+                 row.id_item,
+                 row.OrderDate
+                 )
+    dp.commit()
+
+
+
+class customer(sql):
+    dp = sql()
+
+    for row in df.itertuples():
         dp.query('''
         INSERT INTO orders (id_customer, id_item, OrderDate)
         VALUES (?,?,?)
@@ -29,6 +47,15 @@ class insert(sql):
     dp.commit()
 
 
+
+
+
+
+
+
+
+
+    
 
 
 # import pandas as pd
