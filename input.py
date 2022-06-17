@@ -1,33 +1,6 @@
-#placeholder
-
-
-
-
 import csv
 
-# header = ['name', 'area', 'country_code2', 'country_code3']
-# data = [
-#     ['Albania', 28748, 'AL', 'ALB'],
-#     ['Algeria', 2381741, 'DZ', 'DZA'],
-#     ['American Samoa', 199, 'AS', 'ASM'],
-#     ['Andorra', 468, 'AD', 'AND'],
-#     ['Angola', 1246700, 'AO', 'AGO']
-# ]
-
-# with open('countries.csv', 'w', encoding='UTF8', newline='') as f:
-#     writer = csv.writer(f)
-
-#     # write the header
-#     writer.writerow(header)
-
-#     # write multiple rows
-#     writer.writerows(data)
-
-
-
-
-
-#class with functions to create csv files based on the user input 
+#class with functions to create csv files based on the user input
 class userInput():
 
     def customer(self,fname,lname,phone,Address):
@@ -44,11 +17,32 @@ class userInput():
                 writer.writerows(data)
 
 
+    def items(self,Name,Price,Type,Category):
+        header = ['Name', 'Price', 'Type', 'Category']
+        data = [
+            [Name, Price, Type, Category]
+            ]
+        with open('countries.csv', 'w', encoding='UTF8', newline='') as f:
+                writer = csv.writer(f)
+                # write the header
+                writer.writerow(header)
 
-    def items():
-        pass
-    def orders():
-        pass
+                 # write multiple rows
+                writer.writerows(data)
+        
+
+    def orders(self,id_orders,id_customer,id_item,OrderDate):
+        header = ['id_orders', 'id_customer', 'id_item', 'orderDate']
+        data = [
+            [id_orders, id_customer, id_item, OrderDate]
+            ]
+        with open('countries.csv', 'w', encoding='UTF8', newline='') as f:
+                writer = csv.writer(f)
+                # write the header
+                writer.writerow(header)
+
+                 # write multiple rows
+                writer.writerows(data)
 
 
 # inp = userInput()
