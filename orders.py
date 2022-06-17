@@ -41,16 +41,23 @@ class orders():
                  )
     dp.commit()
 
-    for row in df.itertuples():
-        dp.query('''
-        INSERT INTO orders (id_customer, id_item, OrderDate)
-        VALUES (?,?,?)
-                ''',
-                 row.id_customer, 
-                 row.id_item,
-                 row.OrderDate
+    def customer():
+        for row in df.itertuples():
+            dp.query('''
+            INSERT INTO customer (fname, lname, phone, Address)
+            VALUES (?,?,?,?)
+            ''',
+            row.fname, 
+            row.lname,
+            row.phone,
+            row.Address
                  )
     dp.commit()
+
+
+
+
+    
 
 
 
