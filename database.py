@@ -6,9 +6,8 @@ import os
 import pandas as pd
 from sqlalchemy import create_engine
 
-
-
-
+import pandas as pd
+import pyodbc
 
 # engine = create_engine('mysql+mysqldb://%s:%s@localhost:%i/%s'
 #                        %('root', 'j6Av6mTSzr#6R','127.0.0.1', 'pizzaria'))
@@ -20,7 +19,8 @@ from sqlalchemy import create_engine
 class sql:
 
     def __init__(self):
-        self.db = mysql.connector.connect(user='root', password='j6Av6mTSzr#6R', host='127.0.0.1', database='pizzaria')
+        self.db = pyodbc.connect("DRIVER={MySQL ODBC 8.0 ANSI Driver};SERVER=localhost;DATABASE=pizzaria;USER=root;PASSWORD=j6Av6mTSzr#6R;")##test this out 
+        #self.db = mysql.connector.connect(user='root', password='j6Av6mTSzr#6R', host='127.0.0.1', database='pizzaria')
         self.cursor = self.db.cursor()
 
     def query(self,sql):
@@ -32,6 +32,8 @@ class sql:
 
     def modify(self,sql):
         pass
+
+
 
 
     def close(self):

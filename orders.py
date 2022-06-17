@@ -10,14 +10,24 @@ from database import sql
 
 
 # Import CSV
-data = pd.read_csv (r'C:\Users\Ron\Desktop\Test\products.csv')   
+data = pd.read_csv (r'C:\Users\wolf1\Documents\GitHub\Project0\csv\customer.csv')   
 df = pd.DataFrame(data)
-
+dp = sql()
 # Insert DataFrame to Table
-class orders(sql):
-    dp = sql()
+class orders():
+    
+    def orders():    
+        for row in df.itertuples():
+            dp.query('''
+            INSERT INTO orders (id_customer, id_item, OrderDate)
+            VALUES (?,?,?)
+            ''',
+            row.id_customer, 
+            row.id_item,
+            row.OrderDate
+            )
+        dp.commit()
 
-    def orders():
         pass
     for row in df.itertuples():
         dp.query('''
@@ -32,39 +42,42 @@ class orders(sql):
 
 
 
-class customer(sql):
-    dp = sql()
+# class customer(sql):
+#     dp = sql()
 
-    for row in df.itertuples():
-        dp.query('''
-        INSERT INTO orders (id_customer, id_item, OrderDate)
-        VALUES (?,?,?)
-                 ''',
-                 row.id_customer, 
-                 row.id_item,
-                 row.OrderDate
-                 )
-    dp.commit()
+#     for row in df.itertuples():
+#         dp.query('''
+#         INSERT INTO customer (fname, lname, phone, Address)
+#         VALUES (?,?,?)
+#                  ''',
+#                  row.fname, 
+#                  row.lname,
+#                  row.phone,
+#                  row.Address
+#                  )
+#     dp.commit()
 
-class items(sql):
-    dp = sql()
-    for row in df.itertuples():
-        dp.query('''
-        INSERT INTO orders (id_customer, id_item, OrderDate)
-        VALUES (?,?,?)
-                ''',
-                 row.id_customer, 
-                 row.id_item,
-                 row.OrderDate
-                 )
-    dp.commit()
-
-
-
+# class items(sql):
+#     dp = sql()
+#     for row in df.itertuples():
+#         dp.query('''
+#         INSERT INTO orders (id_customer, id_item, OrderDate)
+#         VALUES (?,?,?)
+#                 ''',
+#                  row.id_customer, 
+#                  row.id_item,
+#                  row.OrderDate
+#                  )
+#     dp.commit()
 
 
 
 
+
+
+
+# act = customer()
+# act()
 
     
 
@@ -74,4 +87,17 @@ class items(sql):
 # data = pd.read_csv (r'C:\Users\wolf1\Documents\GitHub\Project0\csv\addresses.csv')   
 # df = pd.DataFrame(data)
 
-# print(df)
+
+db = sql()
+for row in df.itertuples():
+    db.query('''
+                INSERT INTO products (product_id, product_name, price)
+                VALUES (?,?,?)
+                ''',
+                row.product_id, 
+                row.product_name,
+                row.price
+                )
+db.commit()
+
+#print(df)
