@@ -9,12 +9,6 @@ from sqlalchemy import create_engine
 import pandas as pd
 import pyodbc
 
-# engine = create_engine('mysql+mysqldb://%s:%s@localhost:%i/%s'
-#                        %('root', 'j6Av6mTSzr#6R','127.0.0.1', 'pizzaria'))
-# sql = "SELECT * FROM items;"
-# df = pd.read_sql_query(sql, engine).set_index('id')
-# df.head()
-
 
 class sql:
 
@@ -39,5 +33,5 @@ class sql:
     def close(self):
         self.db.close()
 
-dp = sql()
-dp.query("SELECT * FROM items")
+#dp = sql()
+#dp.query("SELECT * FROM items")
