@@ -3,11 +3,10 @@ import pyodbc
 from database import sql
 
 
-
 dp = sql()
 
 #CLASS adds data from csv to mysql database
-class csv():
+class csv(sql):
     
     def orders():
         data = pd.read_csv (r'C:\Users\wolf1\Documents\GitHub\Project0\csv\orders.csv')   
@@ -36,7 +35,7 @@ class csv():
             row.Type,
             row.Category
                  )
-    dp.commit()
+        dp.commit()
 
     def customer():
         data = pd.read_csv (r'C:\Users\wolf1\Documents\GitHub\Project0\csv\customer.csv')   
@@ -51,5 +50,5 @@ class csv():
             row.phone,
             row.Address
                  )
-    dp.commit()
+        dp.commit()
 

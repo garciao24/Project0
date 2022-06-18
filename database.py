@@ -1,3 +1,4 @@
+from pickle import TRUE
 import mysql.connector
 import MySQLdb
 import pymysql
@@ -84,7 +85,7 @@ class insert(sql):
 
         fname, lname = input("Enter two values: ").split()
         phon = phone().input()
-        Address = input("Enter Address")
+        Address = input("Enter Address: ")
 
         data = [fname, lname, phon, Address]
 
@@ -96,4 +97,51 @@ class insert(sql):
 
             # write the data
             writer.writerow(data)
+
+
+
+
+    def getval(self):
+        while(True):
+            try:
+                option = int(input("please make a choice >>"))
+            except:
+                print('Wrong input. Please enter a number ...')
+            if option == 1:
+                return 'Veg'
+            elif option == 2:
+                return 'Non-Veg'
+            else:
+                print('Invalid option. Please enter a number between 1 or 2.')
+
+
+    def insertItems(self):
+        header = ['Name','Price','Type','Category']
+        name = input("Food Name: ")
+        Price = round((int(input("Price: "))),2)
+        Type = self.getval()
+        Category = input("Category: ")
+
+        data = [name, Price, Type, Category]
+
+        with open('./csv/items.csv', 'w', encoding='UTF8', newline='') as f:
+            writer = csv.writer(f)
+
+            # write the header
+            writer.writerow(header)
+
+            # write the data
+            writer.writerow(data)
+
+
+class delete(sql):
+    def delCustomer():
+        pass
+    def delItems():
+        pass
+    def delOrders():
+        
+
+
+
 

@@ -29,7 +29,7 @@ class userInput():
 
                  # write multiple rows
                 writer.writerows(data)
-        
+
 
     def orders(self,id_orders,id_customer,id_item,OrderDate):
         header = ['id_orders', 'id_customer', 'id_item', 'orderDate']
@@ -45,5 +45,4 @@ class userInput():
                 writer.writerows(data)
 
 
-# inp = userInput()
-# inp.customer("Steve","Jobbs","713-111-1111","nowhere 4321 st")
+
