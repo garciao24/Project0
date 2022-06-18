@@ -70,3 +70,30 @@ class query(sql):
         for row in result:
             data.append(row)
         print (tabulate(data, headers=["Item ID", "Name", "Price", "Type", "Category"]))
+
+
+
+from misc import phone
+import csv 
+
+class insert(sql):
+
+
+    def insertCustomer(self):
+        header = ['fname', 'lname', 'phone', 'Address']
+
+        fname, lname = input("Enter two values: ").split()
+        phon = phone().input()
+        Address = input("Enter Address")
+
+        data = [fname, lname, phon, Address]
+
+        with open('./csv/customer.csv', 'w', encoding='UTF8', newline='') as f:
+            writer = csv.writer(f)
+
+            # write the header
+            writer.writerow(header)
+
+            # write the data
+            writer.writerow(data)
+
