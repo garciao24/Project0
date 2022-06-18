@@ -11,7 +11,6 @@ class phone():
         return None
 
     def input(self):
-
         phone_number = ''
         while not self.validPhone(phone_number):
             phone_number = input("Give me your digits!: ")
