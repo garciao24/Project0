@@ -1,6 +1,6 @@
 from rich.console import Console
 from os import system
-from database import sql
+from database import query
 from collections import namedtuple
 import re
 import string
@@ -8,7 +8,7 @@ from misc import phone
 
 
 c = Console()
-dp = sql()
+dp = query()
 #dp.query("SELECT * FROM customer")
 
 def menu():
@@ -49,13 +49,12 @@ def cusOption():
             #Check what choice was entered and act accordingly
         if option == 1:
             system('cls')
-            dp.test("SELECT * FROM customer")
+            dp.showCustomer()
 
         ###
            
         elif option == 2:
             system('cls')
-            option2()
             
             fname, lname = input("Enter two values: ").split()
             phon = phone().input()
@@ -65,13 +64,16 @@ def cusOption():
             #dp.test("INSERT INTO customer (fname, lname, phone, Address) VALUES "+ c._fields)
             print(c)
             print("INSERT INTO customer (fname, lname, phone, Address) VALUES "+ str(customer))
-            
+
 
 
 
         elif option == 3:
             system('cls')
-            option3()
+            # show cutomers 
+
+
+
 
         elif option == 4:
             system('cls')
