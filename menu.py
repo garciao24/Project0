@@ -56,21 +56,16 @@ def cusOption():
         elif option == 2:
             system('cls')
             option2()
-            customer = namedtuple('Customer',['fname', 'lname', 'phone', 'Address'])
+            
             fname, lname = input("Enter two values: ").split()
             phon = phone().input()
+            Address = input("Enter Address")
+            customer= (fname, lname, phon, Address)
 
+            #dp.test("INSERT INTO customer (fname, lname, phone, Address) VALUES "+ c._fields)
+            print(c)
+            print("INSERT INTO customer (fname, lname, phone, Address) VALUES "+ str(customer))
             
-
-            c = customer(fname, lname, phon, Address)
-
-
-
-
-
-
-
-            dp.test("INSERT INTO customer (fname, lname, phone, Address) VALUES "+ c._fields)
 
 
 
