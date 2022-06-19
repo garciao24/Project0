@@ -31,12 +31,6 @@ def customer_menu():
     c.print("-------------------")
     
 
-# option = c.input("please make a choice >>")
-
-#customer = namedtuple('Customer',['fname', 'lname', 'phone', 'Address'])
-#c = customer('Nandini', '19', '2541997')
-
-
 def cusOption():
     while(True):
         #print('Handle option \'Option 1\'')
@@ -51,7 +45,6 @@ def cusOption():
             system('cls')
             dp.showCustomer()
 
-        ###
            
         elif option == 2:
             system('cls')
@@ -62,7 +55,6 @@ def cusOption():
             customer= (fname, lname, phon, Address)
 
             #dp.test("INSERT INTO customer (fname, lname, phone, Address) VALUES "+ c._fields)
-            print(c)
             print("INSERT INTO customer (fname, lname, phone, Address) VALUES "+ str(customer))
 
 
@@ -121,5 +113,3 @@ if __name__=='__main__':
             exit()
         else:
             print('Invalid option. Please enter a number between 1 and 4.')
-
-
