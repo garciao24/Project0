@@ -1,11 +1,15 @@
-
-
 from operator import delitem
 from database import sql
 from show import show
-
+from test import ask_user
 
 class delete(sql):
+
+
+    
+
+
+
     def delCustomer(self):
         show().showCustomer()
         shift = 0
@@ -15,10 +19,12 @@ class delete(sql):
                 shift = int(input("Please enter ID to delete : "))
             except:
                 print("Only integers are allowed")
-        sqlString="DELETE FROM customer WHERE id_Customer = "+str(shift)
-        #print(sqlString)
+        sqlString1="DELETE FROM orders WHERE id_customer ="+str(shift)+';'
+        sqlString2="DELETE FROM customer WHERE id_Customer = "+str(shift)+';'
+        sqlString = sqlString1+sqlString2
         sql().modify(sqlString)
         show().showCustomer()
+
 
     
     def delItems(self):
@@ -31,10 +37,16 @@ class delete(sql):
             except:
                 print("Only integers are allowed")
 
-        sqlString="DELETE FROM items WHERE id_item = "+str(shift)
-        #print(sqlString)
+
+
+        
+
+        sqlString1="DELETE FROM orders WHERE id_item = "+str(shift)+';'
+        sqlString2="DELETE FROM items WHERE id_item ="+str(shift)+';'
+        sqlString=sqlString1+sqlString2
         sql().modify(sqlString)
         show().showItems()
+
 
     def delOrders(self):#orders in progress
         show().showOrders()
@@ -51,3 +63,9 @@ class delete(sql):
         show().showOrders()
 
 
+
+
+
+
+
+ask_user()
