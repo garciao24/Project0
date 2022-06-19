@@ -71,12 +71,15 @@ class query(sql):
 
 
     def showOrders(self):
-        self.cursor.execute("SELECT * FROM orders")
+        self.cursor.execute("""SELECT orders.id_orders, orders.OrderDate , customer.fname, customer.lname, items.Name, items.Price
+                            FROM pizzaria.orders 
+                            JOIN customer ON orders.id_customer = customer.id_Customer 
+                            JOIN items ON orders.id_item = items.id_item""")
         result = self.cursor.fetchall()
         data = deque()
         for row in result:
             data.append(row)
-        print (tabulate(data, headers=["Item ID", "Name", "Price", "Type", "Category"]))
+        print (tabulate(data, headers=["ID Orders", "Order Date" , "Customer fname", "Customer lname", "Food Item" , "Price"]))
 
 
 
@@ -164,14 +167,16 @@ class delete(sql):
         sql().modify(sqlString)
         query().showItems()
 
-
-
-
-
-
-    def delOrders():
-        pass
-
+    def delOrders():#orders in progress
+        query().showOrders
+        shift = 0
+        numLimit = sql().query("SELECT id_item FROM items ORDER BY id_item ASC")
+        while not int(shift) in numLimit:
+            shift = input("Please enter ID to delete "+str(numLimit)+") : ")
+        sqlString="DELETE FROM item WHERE id_item = "+shift
+        #print(sqlString)
+        sql().modify(sqlString)
+        query().showItems()
 
 
 
