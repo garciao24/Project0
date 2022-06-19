@@ -21,12 +21,18 @@ class sql:
     def query(self,sql):
         self.cursor.execute(sql)#"SELECT * FROM items"
         result = self.cursor.fetchall()
+        #return int((result[0])[0])
+        list1 = []
         for row in result:
-            print(row)
-            print("\n")
+            list1.append(row[0])
+
+        return list1
     
     def modify(self,sql):
-        pass
+        print(sql)
+        self.cursor.execute(sql)
+        self.cursor.commit()
+
 
     def close(self):
         self.db.close()
@@ -135,12 +141,26 @@ class insert(sql):
 
 
 class delete(sql):
-    def delCustomer():
-        pass
-    def delItems():
-        pass
+    def delCustomer(self):
+        query().showCustomer()
+        shift = 0
+        numLimit = sql().query("SELECT id_Customer FROM customer ORDER BY id_Customer ASC")
+        while not int(shift) in numLimit:
+            shift = input("Please enter ID to delete "+str(numLimit)+") : ")
+        sqlString="DELETE FROM customer WHERE id_Customer = "+shift
+        #print(sqlString)
+        sql().modify(sqlString)
+        query().showCustomer()
+
+
+
+
+
+
+
+
     def delOrders():
-        
+        pass
 
 
 
