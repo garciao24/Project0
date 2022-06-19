@@ -36,7 +36,7 @@ class insert(sql):
         while(True):
             try:
                 print("Vegan-1")
-                print("Non-Vegan")
+                print("Non-Vegan-2")
                 option = int(input("please make a choice >>"))
             except:
                 print('Wrong input. Please enter a number ...')

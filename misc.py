@@ -1,5 +1,4 @@
 import re
-import string
 
 class phone():
 
@@ -13,8 +12,6 @@ class phone():
     def input(self):
         phone_number = ''
         while not self.validPhone(phone_number):
-            phone_number = input("Give me your digits!: ")
+            phone_number = input("Enter phone number(format:###-###-####): ")
         return phone_number
 
-
-c = phone().input()
