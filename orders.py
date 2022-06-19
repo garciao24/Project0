@@ -3,16 +3,16 @@ import pyodbc
 from database import sql
 
 
-dp = sql()
+#dp = sql()
 
 #CLASS adds data from csv to mysql database
-class csv(sql):
+class write(sql):
     
-    def orders():
+    def orders(self):
         data = pd.read_csv (r'C:\Users\wolf1\Documents\GitHub\Project0\csv\orders.csv')   
         df = pd.DataFrame(data)
         for row in df.itertuples():
-            dp.query('''
+            self.cursor.execute('''
             INSERT INTO orders (id_customer, id_item, OrderDate)
             VALUES (?,?,?)
             ''',
@@ -20,13 +20,13 @@ class csv(sql):
             row.id_item,
             row.OrderDate
             )
-        dp.commit()
+        self.cursor.commit()
 
-    def items():
+    def items(self):
         data = pd.read_csv (r'C:\Users\wolf1\Documents\GitHub\Project0\csv\items.csv')   
         df = pd.DataFrame(data)
         for row in df.itertuples():
-            dp.query('''
+            self.cursor.execute('''
             INSERT INTO items (Name, Price, Type, Category)
             VALUES (?,?,?,?)
             ''',
@@ -35,13 +35,13 @@ class csv(sql):
             row.Type,
             row.Category
                  )
-        dp.commit()
+        self.cursor.commit()
 
-    def customer():
+    def customer(self):
         data = pd.read_csv (r'C:\Users\wolf1\Documents\GitHub\Project0\csv\customer.csv')   
         df = pd.DataFrame(data)
         for row in df.itertuples():
-            dp.query('''
+            self.cursor.commit('''
             INSERT INTO customer (fname, lname, phone, Address)
             VALUES (?,?,?,?)
             ''',
@@ -50,5 +50,4 @@ class csv(sql):
             row.phone,
             row.Address
                  )
-        dp.commit()
-
+        self.cursor.commit()
