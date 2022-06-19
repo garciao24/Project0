@@ -33,6 +33,9 @@ class sql:
         self.cursor.execute(sql)
         self.cursor.commit()
 
+    def insert(self,sql):
+        self.cursor.execute(sql)
+
 
     def close(self):
         self.db.close()
@@ -85,6 +88,7 @@ class query(sql):
 
 from misc import phone
 import csv 
+from datetime import datetime
 
 class insert(sql):
 
@@ -143,6 +147,42 @@ class insert(sql):
             writer.writerow(data)
 
 
+
+    def insertOrder(self):
+        header = ['id_customer','id_item','OrderDate']
+        query().showCustomer()
+        numLimit = sql().query("SELECT id_Customer FROM customer ORDER BY id_Customer ASC")
+        idCust=0
+        while not int(idCust) in numLimit:
+            idCust = input("Please enter Customer ID : ")
+        
+        query().showItems()
+        numLimit = sql().query("SELECT id_item FROM items ORDER BY id_item ASC")
+        itemID=0
+        while not int(itemID) in numLimit:
+            itemID = input("Please Item ID  : ")
+        
+        date = datetime.today().strftime('%Y-%m-%d')
+
+
+        data = [idCust, itemID, date]
+
+        with open('./csv/orders.csv', 'w', encoding='UTF8', newline='') as f:
+            writer = csv.writer(f)
+
+            # write the header
+            writer.writerow(header)
+
+            # write the data
+            writer.writerow(data)
+
+
+
+
+
+
+
+
 class delete(sql):
     def delCustomer(self):
         query().showCustomer()
@@ -156,7 +196,7 @@ class delete(sql):
         query().showCustomer()
 
     
-    def delItems():
+    def delItems(self):
         query().showItems()
         shift = 0
         numLimit = sql().query("SELECT id_item FROM items ORDER BY id_item ASC")
@@ -167,16 +207,14 @@ class delete(sql):
         sql().modify(sqlString)
         query().showItems()
 
-    def delOrders():#orders in progress
-        query().showOrders
+    def delOrders(self):#orders in progress
+        query().showOrders()
         shift = 0
-        numLimit = sql().query("SELECT id_item FROM items ORDER BY id_item ASC")
+        numLimit = sql().query("SELECT id_orders FROM orders ORDER BY id_orders ASC")
         while not int(shift) in numLimit:
-            shift = input("Please enter ID to delete "+str(numLimit)+") : ")
-        sqlString="DELETE FROM item WHERE id_item = "+shift
+            shift = input("Please enter ID to delete : ")
+        sqlString="DELETE FROM orders WHERE id_orders = "+shift
         #print(sqlString)
         sql().modify(sqlString)
-        query().showItems()
-
-
+        query().showOrders()
 
