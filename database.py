@@ -152,7 +152,17 @@ class delete(sql):
         sql().modify(sqlString)
         query().showCustomer()
 
-
+    
+    def delItems():
+        query().showItems()
+        shift = 0
+        numLimit = sql().query("SELECT id_item FROM items ORDER BY id_item ASC")
+        while not int(shift) in numLimit:
+            shift = input("Please enter ID to delete "+str(numLimit)+") : ")
+        sqlString="DELETE FROM item WHERE id_item = "+shift
+        #print(sqlString)
+        sql().modify(sqlString)
+        query().showItems()
 
 
 
