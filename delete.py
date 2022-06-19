@@ -1,16 +1,18 @@
 from operator import delitem
 from database import sql
+from misc import misc
 from show import show
-from test import ask_user
 
 class delete(sql):
 
-
-    
-
-
+    def warning(self):
+        print("!!!WARNING!!! DELETING WILL ALSO DELETE ANYTHING ASSSOCIATED WITH IT")
+        return misc().ask_user()
 
     def delCustomer(self):
+        strt = self.warning()
+        if strt == 'n':
+            return
         show().showCustomer()
         shift = 0
         numLimit = sql().query("SELECT id_Customer FROM customer ORDER BY id_Customer ASC")
@@ -24,10 +26,11 @@ class delete(sql):
         sqlString = sqlString1+sqlString2
         sql().modify(sqlString)
         show().showCustomer()
-
-
     
     def delItems(self):
+        strt = self.warning()
+        if strt == 'n':
+            return
         show().showItems()
         shift = 0
         numLimit = sql().query("SELECT id_item FROM items ORDER BY id_item ASC")
@@ -37,10 +40,6 @@ class delete(sql):
             except:
                 print("Only integers are allowed")
 
-
-
-        
-
         sqlString1="DELETE FROM orders WHERE id_item = "+str(shift)+';'
         sqlString2="DELETE FROM items WHERE id_item ="+str(shift)+';'
         sqlString=sqlString1+sqlString2
@@ -48,7 +47,7 @@ class delete(sql):
         show().showItems()
 
 
-    def delOrders(self):#orders in progress
+    def delOrders(self):
         show().showOrders()
         shift = 0
         numLimit = sql().query("SELECT id_orders FROM orders ORDER BY id_orders ASC")
@@ -61,11 +60,3 @@ class delete(sql):
         #print(sqlString)
         sql().modify(sqlString)
         show().showOrders()
-
-
-
-
-
-
-
-ask_user()
