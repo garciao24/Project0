@@ -9,7 +9,7 @@ c = Console()
 class menu():
 
     def menu(self):
-        c.print("--------Main Menu-----------",style='light_sea_green')
+        c.print("--------Pizzeria Main Menu-----------",style='light_sea_green')
         c.print("Select an option")
         c.print("Customer Menu 1")
         c.print("Items Menu 2")
@@ -19,7 +19,7 @@ class menu():
         c.print("-------------------")
 
     def customer_menu(self):
-        c.print("-----Customer menu--------------",style='light_sea_green')
+        c.print("-------Customer menu---------",style='light_sea_green')
         c.print("Select an option")
         c.print("Show Customers 1")
         c.print("Add Customer 2")

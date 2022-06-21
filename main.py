@@ -5,7 +5,7 @@ from menu import menu
 system('cls')
 if __name__=='__main__':
     while(True):
-        
+
         menu().menu()
         option = ''
         try:
@@ -27,7 +27,7 @@ if __name__=='__main__':
 
         elif option == 4:
             system('cls')
-            insert().insertItems()
+            insert().insertOrder()
 
         elif option == 5:
             print('Now exiting')

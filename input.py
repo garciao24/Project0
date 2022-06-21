@@ -2,20 +2,18 @@ import csv
 from datetime import datetime
 from csvWrite import write
 from database import sql
-from misc import phone
+from misc import misc
 from show import show
 
 #class with functions to create csv files based on the user input
 
-
 class insert(sql):
-
 
     def insertCustomer(self):
         header = ['fname', 'lname', 'phone', 'Address']
 
         fname, lname = input("Enter First and Last Name: ").split()
-        phon = phone().input()
+        phon = misc().input()
         Address = input("Enter Address: ")
 
         data = [fname, lname, phon, Address]
@@ -51,7 +49,7 @@ class insert(sql):
     def insertItems(self):
         header = ['Name','Price','Type','Category']
         name = input("Food Name: ")
-        Price = round((float(input("Price: "))),2)
+        Price = misc().getPrice()
         Type = self.getval()
         Category = input("Category: ")
 
@@ -67,7 +65,6 @@ class insert(sql):
             writer.writerow(data)
 
         write().items()
-
 
 
     def insertOrder(self):
@@ -100,3 +97,4 @@ class insert(sql):
             writer.writerow(data)
 
         write().orders()
+
