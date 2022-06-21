@@ -1,9 +1,9 @@
 from pickle import TRUE
-import mysql.connector
-import MySQLdb
+#import mysql.connector
+#import MySQLdb
 import pymysql
 pymysql.install_as_MySQLdb()
-from sqlalchemy import create_engine
+#from sqlalchemy import create_engine
 
 import pandas as pd
 import pyodbc
@@ -12,7 +12,6 @@ class sql:
     def __init__(self):
 
         self.db = pyodbc.connect("DRIVER={MySQL ODBC 8.0 ANSI Driver};SERVER=localhost;DATABASE=pizzaria;USER=root;PASSWORD=j6Av6mTSzr#6R;")##test this out 
-        
         #self.db = mysql.connector.connect(user='root', password='j6Av6mTSzr#6R', host='127.0.0.1', database='pizzaria')
         self.cursor = self.db.cursor()
 
@@ -25,7 +24,7 @@ class sql:
         return list1
     
     def modify(self,sql):
-        print(sql)
+        #print(sql)
         self.cursor.execute(sql)
         self.cursor.commit()
 

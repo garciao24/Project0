@@ -97,4 +97,3 @@ class insert(sql):
             writer.writerow(data)
 
         write().orders()
-

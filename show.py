@@ -10,7 +10,7 @@ class show(sql):
         data = deque()
         for row in result:
             data.append(row)
-        print (tabulate(data, headers=["Customer ID", "FirstName", "LastName", "Phone", "Address"]))
+        print (tabulate(data, headers=["Customer ID", "FirstName", "LastName", "Phone", "Address"],tablefmt="fancy_grid"))
 
     def showItems(self):
         self.cursor.execute("SELECT * FROM items")
@@ -18,7 +18,7 @@ class show(sql):
         data = deque()
         for row in result:
             data.append(row)
-        print (tabulate(data, headers=["Item ID", "Name", "Price", "Type", "Category"]))
+        print (tabulate(data, headers=["Item ID", "Name", "Price", "Type", "Category"],tablefmt="fancy_grid"))
 
     def showOrders(self):
         self.cursor.execute("""SELECT orders.id_orders, orders.OrderDate , customer.fname, customer.lname, items.Name, items.Price
@@ -29,4 +29,6 @@ class show(sql):
         data = deque()
         for row in result:
             data.append(row)
-        print (tabulate(data, headers=["ID Orders", "Order Date" , "Customer fname", "Customer lname", "Food Item" , "Price"]))
+        print (tabulate(data, headers=["ID Orders", "Order Date" , "Customer fname", "Customer lname", "Food Item" , "Price"],tablefmt="fancy_grid"))
+
+show().showCustomer()

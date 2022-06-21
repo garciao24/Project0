@@ -1,14 +1,15 @@
 from os import system
-from input import insert
+from insert import insert
 from menu import menu
 
 system('cls')
 if __name__=='__main__':
     while(True):
 
-        menu().menu()
+        #menu().menu()
         option = ''
         try:
+            menu().menu()
             option = int(input("please make a choice >>"))
         except:
             print('Wrong input. Please enter a number ...')
@@ -33,4 +34,5 @@ if __name__=='__main__':
             print('Now exiting')
             exit()
         else:
+            system('cls')
             print('Invalid option. Please enter a number between 1 and 5.')

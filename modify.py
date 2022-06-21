@@ -1,5 +1,5 @@
 from database import sql
-from input import insert
+from insert import insert
 from misc import misc
 from show import show
 

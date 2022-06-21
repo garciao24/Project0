@@ -41,10 +41,7 @@
 &nbsp;
 
 > ## pandas for manipulating data and read/write files
-> ## sqlalchemy to create engine to import Excel file into MySQL db
-> ## pymysql for database connection
-> ## signal for signal handlers (kill terminal on menu quit)
-> ## time for datestamps in 'created' fields
+> ## pyodbc for database connection
 > ## tabulate for rendering data to tables in terminal
 > ## os for operating system functions
 > ## collections for deque
@@ -53,10 +50,6 @@
 &nbsp;
 
 # Project Management:
-
-> ## Jira
-> ## Agile
-> ## Kanban
 > ## Vs Code 1.68.0
 &nbsp;
 

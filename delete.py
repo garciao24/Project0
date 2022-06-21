@@ -23,10 +23,11 @@ class delete(sql):
                 print("Only integers are allowed")
         sqlString1="DELETE FROM orders WHERE id_customer ="+str(shift)+';'
         sqlString2="DELETE FROM customer WHERE id_Customer = "+str(shift)+';'
-        sqlString = sqlString1+sqlString2
-        sql().modify(sqlString)
+        sql().modify(sqlString1)
+        sql().modify(sqlString2)
         show().showCustomer()
     
+
     def delItems(self):
         strt = self.warning()
         if strt == 'n':
@@ -42,8 +43,8 @@ class delete(sql):
 
         sqlString1="DELETE FROM orders WHERE id_item = "+str(shift)+';'
         sqlString2="DELETE FROM items WHERE id_item ="+str(shift)+';'
-        sqlString=sqlString1+sqlString2
-        sql().modify(sqlString)
+        sql().modify(sqlString1)
+        sql().modify(sqlString2)
         show().showItems()
 
 
@@ -57,6 +58,9 @@ class delete(sql):
             except:
                 print("Only integers are allowed")
         sqlString="DELETE FROM orders WHERE id_orders = "+str(shift)
-        #print(sqlString)
         sql().modify(sqlString)
         show().showOrders()
+
+
+
+ 

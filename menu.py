@@ -1,7 +1,8 @@
 from rich.console import Console
 from os import system
 from delete import delete
-from input import insert
+from insert import insert
+from modify import modify
 from show import show
 
 c = Console()
@@ -76,7 +77,7 @@ class menu():
 
             elif option == 4:
                 system('cls')
-
+                modify().custUpdate()
 
             elif option == 5:
                 system('cls')
@@ -87,7 +88,6 @@ class menu():
 
     def itemOption(self):
         while(True):
-            #print('Handle option \'Option 1\'')
             self.items_menu()
             option = ''
             try:
@@ -111,6 +111,7 @@ class menu():
 
             elif option == 4:
                 system('cls')
+                modify().itemUpdate()
 
             elif option == 5:
                 system('cls')
@@ -143,12 +144,9 @@ class menu():
 
             elif option == 4:
                 system('cls')
-
-            elif option == 5:
-                system('cls')
                 break
             else:
-                print('Invalid option. Please enter a number between 1 and 5.')   
+                print('Invalid option. Please enter a number between 1 and 4.')   
 
 
 
