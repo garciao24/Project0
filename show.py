@@ -31,4 +31,4 @@ class show(sql):
             data.append(row)
         print (tabulate(data, headers=["ID Orders", "Order Date" , "Customer fname", "Customer lname", "Food Item" , "Price"],tablefmt="fancy_grid"))
 
-show().showCustomer()
+

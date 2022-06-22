@@ -6,7 +6,6 @@ system('cls')
 if __name__=='__main__':
     while(True):
 
-        #menu().menu()
         option = ''
         try:
             menu().menu()

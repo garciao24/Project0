@@ -12,7 +12,10 @@ class insert(sql):
     def insertCustomer(self):
         header = ['fname', 'lname', 'phone', 'Address']
 
-        fname, lname = input("Enter First and Last Name: ").split()
+        #fname, lname = input("Enter First and Last Name: ").split()
+        fname = input("Enter First Name: ")
+        lname = input("Enter Last Name: ")
+
         phon = misc().input()
         Address = input("Enter Address: ")
 
@@ -26,8 +29,9 @@ class insert(sql):
 
             # write the data
             writer.writerow(data)
-
+        misc().csvWrite()
         write().customer()
+        misc().csvUpload()
 
 
     def getval(self):
@@ -63,8 +67,9 @@ class insert(sql):
 
             # write the data
             writer.writerow(data)
-
+        misc().csvWrite()
         write().items()
+        misc().csvUpload()
 
 
     def insertOrder(self):
@@ -95,5 +100,9 @@ class insert(sql):
 
             # write the data
             writer.writerow(data)
-
+        misc().csvWrite()
         write().orders()
+        misc().csvUpload()
+
+
+

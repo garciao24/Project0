@@ -4,50 +4,92 @@ from delete import delete
 from insert import insert
 from modify import modify
 from show import show
+from rich.table import Table
 
 c = Console()
 
 class menu():
 
+
     def menu(self):
-        c.print("--------Pizzeria Main Menu-----------",style='light_sea_green')
-        c.print("Select an option")
-        c.print("Customer Menu 1")
-        c.print("Items Menu 2")
-        c.print("Orders Menu 3")
-        c.print("Take New Order 4")
-        c.print("EXIT 5")
-        c.print("-------------------")
+        table = Table(show_header=True, header_style="bold magenta")
+        table.add_column("Pizzeria Main Menu", justify='center', width=18)
+        table.add_row(
+            " [blue]Customer Menu[/blue]  [bold green]1[/bold green]"
+        )
+        table.add_row(
+            "    [blue]Items Menu[/blue]  [bold green]2[/bold green]"
+        )
+        table.add_row(
+            "   [blue]Orders Menu[/blue]  [bold green]3[/bold green]"
+        )
+        table.add_row(
+            "[blue]Take New Order[/blue]  [bold green]4[/bold green]"
+        )
+        table.add_row(
+            "          [blue]EXIT[/blue]  [bold green]5[/bold green]"
+        )
+        c.print(table)
+
 
     def customer_menu(self):
-        c.print("-------Customer menu---------",style='light_sea_green')
-        c.print("Select an option")
-        c.print("Show Customers 1")
-        c.print("Add Customer 2")
-        c.print("Delete Customer 3")
-        c.print("Modify Customer 4")
-        c.print("Back to main menu 5")
-        c.print("-------------------")
+        table = Table(show_header=True, header_style="bold magenta")
+        table.add_column("Customer menu", justify='center', width=18)
+        table.add_row(
+            " [blue]Show Customers[/blue] [bold green]1[/bold green]"
+        )
+        table.add_row(
+            "   [blue]Add Customer[/blue] [bold green]2[/bold green]"
+        )
+        table.add_row(
+            "[blue]Delete Customer[/blue] [bold green]3[/bold green]"
+        )
+        table.add_row(
+            "[blue]Modify Customer[/blue] [bold green]4[/bold green]"
+        )
+        table.add_row(
+            "     [blue] Main Menu[/blue] [bold green]5[/bold green]"
+        )
+        c.print(table)
+
 
     def items_menu(self):
-        c.print("-----Items menu--------------",style='light_sea_green')
-        c.print("Select an option")
-        c.print("Show Items 1")
-        c.print("Add Items 2")
-        c.print("Delete Item 3")
-        c.print("Modify Item 4")
-        c.print("Back to main menu 5")
-        c.print("-------------------")
+        table = Table(show_header=True, header_style="bold magenta")
+        table.add_column("Items menu", justify='center', width=18)
+        table.add_row(
+            "     [blue]Show Items[/blue] [bold green]1[/bold green]"
+        )
+        table.add_row(
+            "      [blue]Add Items[/blue] [bold green]2[/bold green]"
+        )
+        table.add_row(
+            "    [blue]Delete Item[/blue] [bold green]3[/bold green]"
+        )
+        table.add_row(
+            "    [blue]Modify Item[/blue] [bold green]4[/bold green]"
+        )
+        table.add_row(
+            "     [blue] Main Menu[/blue] [bold green]5[/bold green]"
+        )
+        c.print(table)
+
 
     def orders_menu(self):
-        c.print("-----Orders menu--------------",style='light_sea_green')
-        c.print("Select an option")
-        c.print("Show Orders 1")
-        c.print("Take New Order 2")
-        c.print("Delete Orders 3")
-        c.print("Modify Orders 4")
-        c.print("Back to main menu 5")
-        c.print("-------------------")
+        table = Table(show_header=True, header_style="bold magenta")
+        table.add_column("Orders menu", justify='center', width=18)
+        table.add_row(
+            "    [blue]Show Orders[/blue] [bold green]1[/bold green]"
+        )
+        table.add_row(
+            " [blue]Take New Order[/blue] [bold green]2[/bold green]"
+        )
+        table.add_row(
+            "  [blue]Delete Orders[/blue] [bold green]3[/bold green]"
+        )
+        table.add_row(
+            "     [blue] Main Menu[/blue] [bold green]4[/bold green]"
+        )
+        c.print(table)
 
 
     def cusOption(self):
@@ -67,8 +109,6 @@ class menu():
             elif option == 2:
                 system('cls')
                 insert().insertCustomer()
-                system('cls')
-                
                 show().showCustomer()
 
             elif option == 3:
@@ -102,7 +142,7 @@ class menu():
             elif option == 2:
                 system('cls')
                 insert().insertItems()
-                system('cls')
+                #system('cls')
                 show().showItems()
 
             elif option == 3:
@@ -121,7 +161,6 @@ class menu():
 
     def orderOption(self):
         while(True):
-            #print('Handle option \'Option 1\'')
             self.orders_menu()
             option = ''
             try:
@@ -147,25 +186,3 @@ class menu():
                 break
             else:
                 print('Invalid option. Please enter a number between 1 and 4.')   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

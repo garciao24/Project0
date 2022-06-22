@@ -1,4 +1,9 @@
 import re
+import logging
+from rich.logging import RichHandler
+from rich.progress import track
+from time import sleep
+
 
 class misc():
 
@@ -40,3 +45,20 @@ class misc():
                 print("Only integers are allowed")
                 Price = input("Price:")
         return "{:.2f}".format(Price)
+
+    def warning(self):
+        FORMAT = "%(message)s"
+        logging.basicConfig(
+            level="NOTSET", format=FORMAT, datefmt="[%X]", handlers=[RichHandler()]
+            )
+        log = logging.getLogger("rich")
+        log.warning("DELETING WILL ALSO DELETE ANYTHING ASSSOCIATED WITH IT")
+
+
+    def csvWrite(self):
+        for step in track(range(40), description="Adding input to csv..."):
+            sleep(0.1)
+
+    def csvUpload(self):
+        for step in track(range(40), description="Uploading csv to database..."):
+            sleep(0.1)

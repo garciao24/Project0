@@ -6,7 +6,7 @@ from show import show
 class delete(sql):
 
     def warning(self):
-        print("!!!WARNING!!! DELETING WILL ALSO DELETE ANYTHING ASSSOCIATED WITH IT")
+        misc().warning()
         return misc().ask_user()
 
     def delCustomer(self):
@@ -62,5 +62,3 @@ class delete(sql):
         show().showOrders()
 
 
-
- 

@@ -14,7 +14,8 @@ class modify(sql):
             except:
                 print("Only integers are allowed")
 
-        fname, lname = input("Enter First and Last Name: ").split()
+        fname = input("Enter First Name: ")
+        lname = input("Enter Last Name: ")
         phon = misc().input()
         Address = input("Enter Address: ")
 
