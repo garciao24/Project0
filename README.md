@@ -45,6 +45,9 @@
 > ## tabulate for rendering data to tables in terminal
 > ## os for operating system functions
 > ## collections for deque
+> ## csv for creating csv files
+> ## rich for the visual
+
 ---
 
 &nbsp;

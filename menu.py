@@ -1,15 +1,14 @@
-from rich.console import Console
-from os import system
 from delete import delete
 from insert import insert
 from modify import modify
 from show import show
 from rich.table import Table
+from rich.console import Console
+from os import system
 
 c = Console()
 
 class menu():
-
 
     def menu(self):
         table = Table(show_header=True, header_style="bold magenta")
