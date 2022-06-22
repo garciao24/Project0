@@ -1,10 +1,10 @@
-# Revature Project Zero - Oscar Garcia
+# Project Zero - Oscar Garcia
 
 &nbsp;
 
-# Python&nbsp; | &nbsp; MySQL&nbsp; | &nbsp;CLI Restaurant App
+# Python&nbsp; | &nbsp; MySQL&nbsp; | &nbsp;CLI Pizzaria App
 
-## **Description:** placeholder
+## **Description:** A CLI application  allows the user to create, read, update, and delete data from the three tables. 
 
 &nbsp;
 
