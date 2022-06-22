@@ -4,7 +4,9 @@ from rich.logging import RichHandler
 from rich.progress import track
 from time import sleep
 
-
+'''misc class
+Used to store miscellaneous methods
+'''
 class misc():
 
     def validPhone(self,number):

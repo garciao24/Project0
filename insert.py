@@ -5,8 +5,13 @@ from database import sql
 from misc import misc
 from show import show
 
-#class with functions to create csv files based on the user input
-
+'''insert class
+Used to create csv files from the user input data
+methods:
+insertCustomer()
+insertItems()
+insertOrder()
+'''
 class insert(sql):
 
     def insertCustomer(self):
